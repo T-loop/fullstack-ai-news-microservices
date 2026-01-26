@@ -26,7 +26,7 @@ async function loadNews() {
 
     const categoryTd = document.createElement("td");
     categoryTd.textContent = n.category;
-
+///
     const contentTd = document.createElement("td");
     contentTd.textContent = n.content;
 
