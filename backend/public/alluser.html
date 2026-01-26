@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Nachrichten</h1>
+
+<button onclick="loadAll()">Alle</button>
+<button onclick="loadCategory('technologie')">Technologie</button>
+<button onclick="loadCategory('wissenschaft')">Wissenschaft</button>
+
+<div id="news"></div>
+
+<script>
+async function loadAll() {
+  const res = await fetch("/public/getallnews");
+  const news = await res.json();
+  render(news);
+}
+
+async function loadCategory(cat) {
+  const res = await fetch(`/public/getnewsbycategory/${cat}`);
+  const news = await res.json();
+  render(news);
+}
+
+function render(news) {
+  const container = document.getElementById("news");
+  container.innerHTML = "";
+  news.forEach(n => {
+    container.innerHTML += `<h3>${n.title}</h3><p>${n.content}</p>`;
+  });
+}
+
+loadAll();
+</script>
+</body>
+</html>

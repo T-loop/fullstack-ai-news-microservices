@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+<button onclick="logout()">Logout</button>
+
+<h2>Neue Nachricht</h2>
+<input id="title" placeholder="Titel" />
+<textarea id="content" placeholder="Inhalt"></textarea>
+<button id="post" onclick="postNews()">Posten</button>
+<button id="update" onclick="updateNews()"  disabled>Update</button>
+
+<h2>Nachrichten</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Titel</th>
+      <th>Kategorie</th>
+      <th>Content</th>
+      <th>Aktionen</th>
+    </tr>
+  </thead>
+  <tbody id="newsTable"></tbody>
+</table>
+
+<script src="admin.js"></script>
+</body>
+</html>
