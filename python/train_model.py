@@ -46,4 +46,4 @@ if __name__ == "__main__":
     )
 
     joblib.dump(model, "text_model.joblib")
-    print("✅ Multiclass-TFIDF-Modell gespeichert")
+    print("Multiclass-TFIDF-Modell gespeichert")
