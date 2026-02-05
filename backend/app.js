@@ -6,6 +6,8 @@ const newsRouter= require("./routes/newsRouter");
 const publicRouter= require("./routes/publicRouter");
 const allowedOrNot = require("./middleware/middleware");
 
+require("./utils/cron");
+
 const PORT = 3000;
 
 app.use(express.json());

@@ -4,9 +4,9 @@ const router= express.Router();
 
 router.get("/getallnews", controller.getallNewsController);
 
-router.get("getnewsbycategory/:category", controller.getNewsByCategoryController);
+router.get("/getnewsbycategory/:category", controller.getNewsByCategoryController);
 
-router.post("/postnews", controller.postNewsInCategoryController);
+//router.post("/postnews", controller.postNewsInCategoryController);
 
 router.put("/updatenews/:messageid", controller.putUpdateNewsController);
 

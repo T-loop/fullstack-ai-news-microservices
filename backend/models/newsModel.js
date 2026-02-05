@@ -1,5 +1,13 @@
 const pool = require("../config/db");
 
+
+const checkDuplicate = async (title) => {
+  const news = await pool.query("SELECT 1 FROM messages WHERE title = $1", [title]);
+  
+  return news.rows.length > 0;
+};
+
+
 const getallNewsModel = async () => {
   const newses = await pool.query(
     "SELECT * FROM messages ORDER BY created_at DESC"
@@ -39,6 +47,7 @@ const deleteNewsModel = async (messageid, userid) => {
 };
 
 module.exports = {
+  checkDuplicate,
   getallNewsModel,
   getNewsByCategoryModel,
   postNewsInCategoryModel,

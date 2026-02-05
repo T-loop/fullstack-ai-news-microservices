@@ -49,14 +49,21 @@ async function loadNews() {
 function fillForm(title, content, id) {
   document.getElementById("title").value = title;
   document.getElementById("content").value = content;
-  currentUpdateId = id;
-  document.getElementById("post").disabled = true; 
-  
+
+  document.getElementById("title").hidden = false;
+  document.getElementById("content").hidden = false;
+
+  document.getElementById("post").hidden = true;
+  document.getElementById("update").hidden = false;
+
+  document.getElementById("post").disabled = true;
   document.getElementById("update").disabled = false;
 
+  currentUpdateId = id;
 }
 
-async function postNews() {
+
+/*async function postNews() {
   const title = document.getElementById("title").value;
   const content = document.getElementById("content").value;
 
@@ -72,11 +79,15 @@ async function postNews() {
   clearForm();
   loadNews();
 }
+  */
 
 async function updateNews() {
   if (!currentUpdateId) return;
+   
+  alert("sicher Willst du updaten");
 
   const title = document.getElementById("title").value;
+  
   const content = document.getElementById("content").value;
 
   await fetch(`/news/updatenews/${currentUpdateId}`, {
@@ -106,11 +117,19 @@ async function deleteNews(id) {
 function clearForm() {
   document.getElementById("title").value = "";
   document.getElementById("content").value = "";
-  currentUpdateId = null;
 
-  document.getElementById("post").disabled = false;
+  document.getElementById("title").hidden = true;
+  document.getElementById("content").hidden = true;
+
+  document.getElementById("post").hidden = true;
+  document.getElementById("update").hidden = true;
+
+  document.getElementById("post").disabled = true;
   document.getElementById("update").disabled = true;
+
+  currentUpdateId = null;
 }
+
 
 function logout() {
   localStorage.removeItem("token");

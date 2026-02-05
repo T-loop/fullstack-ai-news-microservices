@@ -20,9 +20,9 @@ const getNewsByCategoryController = async (req, res) => {
   }
 };
 
-const postNewsInCategoryController = async (req, res) => {
+/*const postNewsInCategoryController = async (req, res) => {
   const { title, content } = req.body;
-  const userid = req.user.userid; // 🔥 aus JWT
+  const userid = req.user.userid; //  aus JWT
 
   try {
     const postnews = await service.postNewsInCategoryService(
@@ -35,6 +35,7 @@ const postNewsInCategoryController = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+*/
 
 const putUpdateNewsController = async (req, res) => {
   const { messageid } = req.params;
@@ -69,7 +70,7 @@ const deleteNewsController = async (req, res) => {
 module.exports = {
   getNewsByCategoryController,
   getallNewsController,
-  postNewsInCategoryController,
+  //postNewsInCategoryController,
   putUpdateNewsController,
   deleteNewsController,
 };
