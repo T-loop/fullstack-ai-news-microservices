@@ -14,6 +14,8 @@ const getNewsByCategoryService = async (category) => {
 
 
 const postNewsInCategoryService = async (userid = 1) => {
+
+  const batchStart = Date.now();
   
   const newsData = await newsParser.newsFromExternalSource(); 
 
@@ -46,6 +48,14 @@ const postNewsInCategoryService = async (userid = 1) => {
     await model.postNewsInCategoryModel(title, content, category, userid);
     console.log('Nachricht erfolgreich gepostet:', title);
   }
+
+  const batchEnd = Date.now();   // ⏱ Ende Gesamtprozess
+
+  const totalTime = batchEnd - batchStart;
+
+  console.log("Gesamtverarbeitungszeit:", totalTime, "ms");
+  console.log("Anzahl Nachrichten:", newsData.length);
+  console.log("Durchschnitt pro Nachricht:", totalTime / newsData.length, "ms");
 };
 
 const putUpdateNewsService = async (messageid, title, content, userid) => {

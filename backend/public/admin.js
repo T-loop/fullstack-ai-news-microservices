@@ -33,11 +33,15 @@ async function loadNews() {
     const actionsTd = document.createElement("td");
 
     const delBtn = document.createElement("button");
-    delBtn.textContent = "Delete";
+    delBtn.classList.add("btn", "btn-danger", "btn-sm", "me-2");
+    delBtn.innerHTML = `<i class="bi bi-trash"></i>`;
+    delBtn.title = "Delete";
     delBtn.onclick = () => deleteNews(n.messageid);
 
     const updBtn = document.createElement("button");
-    updBtn.textContent = "Update";
+    updBtn.classList.add("btn", "btn-warning", "btn-sm");
+    updBtn.innerHTML = `<i class="bi bi-pencil-square"></i>`;
+    updBtn.title = "Update";
     updBtn.onclick = () => fillForm(n.title, n.content, n.messageid);
 
     actionsTd.append(delBtn, updBtn);

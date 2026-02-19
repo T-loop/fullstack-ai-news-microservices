@@ -3,34 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <title>Admin Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F7F7F7;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-card {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #00B8D9;
+    }
+
+    .form-control:focus {
+      border-color: #00B8D9;
+      box-shadow: 0 0 0 0.2rem rgba(0,184,217,0.25);
+    }
+
+    .btn-primary {
+      background-color: #00B8D9;
+      border: none;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #0091A8;
+      transform: translateY(-2px);
+    }
+
+    .text-center a {
+      color: #00B8D9;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .text-center a:hover {
+      color: #0091A8;
+    }
+  </style>
 </head>
 <body>
+
+<div class="login-card">
   <h1>Admin Login</h1>
 
-  <input id="username" placeholder="Username" />
-  <input id="password" type="password" placeholder="Passwort" />
-  <button onclick="login()">Login</button>
+  <div class="mb-3">
+    <input id="username" class="form-control" placeholder="Username" />
+  </div>
+  <div class="mb-3">
+    <input id="password" type="password" class="form-control" placeholder="Passwort" />
+  </div>
+  <div class="d-grid mb-3">
+    <button class="btn btn-primary" onclick="login()"><i class="bi bi-box-arrow-in-right"></i> Login</button>
+  </div>
 
-  <script>
-    async function login() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+  <p class="text-center">
+    <a href="alluser.html">Nachrichten Sehen</a>
+  </p>
+</div>
 
-      const res = await fetch("/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-      });
+<script>
+async function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-      const data = await res.json();
+  const res = await fetch("/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password })
+  });
 
-      if (res.ok) {
-        localStorage.setItem("token", data.token);
-        window.location.href = "admin.html";
-      } else {
-        alert("Login fehlgeschlagen");
-      }
-    }
-  </script>
+  const data = await res.json();
+
+  if (res.ok) {
+    localStorage.setItem("token", data.token);
+    window.location.href = "admin.html";
+  } else {
+    alert("Login fehlgeschlagen");
+  }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<!--später verbesserung-->
