@@ -24,7 +24,7 @@ GERMAN_STOPWORDS = [
     "noch","nur","schon","wird","werden","kann","könnte","soll","sollte"
 ]
 
-# Pipeline: TF-IDF + Logistic Regression
+# Pipeline: TF-IDF + Logistic Regression from sklearn
 model = Pipeline([
     ("tfidf", TfidfVectorizer(stop_words=GERMAN_STOPWORDS, lowercase=True)),
     ("classifier", LogisticRegression(max_iter=1000, multi_class="multinomial", solver="lbfgs"))

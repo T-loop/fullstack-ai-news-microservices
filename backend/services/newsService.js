@@ -49,7 +49,7 @@ const postNewsInCategoryService = async (userid = 1) => {
     console.log('Nachricht erfolgreich gepostet:', title);
   }
 
-  const batchEnd = Date.now();   // ⏱ Ende Gesamtprozess
+  const batchEnd = Date.now();   // Ende Gesamtprozess
 
   const totalTime = batchEnd - batchStart;
 

@@ -15,22 +15,34 @@
 
     h1, h2 {
       margin-bottom: 1rem;
+      color: #d32f2f; /* Spiegel-Rot für Überschriften */
     }
 
     .card {
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       border: none;
+      border-radius: 0.75rem;
     }
 
-    .btn-primary {
-      background-color: #00B8D9;
+    .btn-danger {
+      background-color: #d32f2f;
       border: none;
       transition: all 0.3s ease;
     }
 
-    .btn-primary:hover {
-      background-color: #0091A8;
+    .btn-danger:hover {
+      background-color: #a52828;
       transform: translateY(-2px);
+    }
+
+    .btn-outline-danger {
+      border-color: #d32f2f;
+      color: #d32f2f;
+    }
+
+    .btn-outline-danger:hover {
+      background-color: #d32f2f;
+      color: white;
     }
 
     table {
@@ -40,33 +52,42 @@
     }
 
     th {
-      background-color: #00B8D9;
+      background-color: #d32f2f;
       color: white;
     }
 
     td, th {
       padding: 0.75rem 1rem;
       text-align: left;
+      vertical-align: middle;
+    }
+
+    .form-control:focus {
+      border-color: #d32f2f;
+      box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
     }
   </style>
 </head>
 <body class="p-4">
 
+
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h1>Admin Dashboard</h1>
-  <button class="btn btn-primary" onclick="logout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
+  <button class="btn btn-danger" onclick="logout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
 </div>
 
-<a class="btn btn-secondary mb-4" href="alluser.html">Nachrichten Sehen</a>
+<a class="btn btn-outline-danger mb-4" href="alluser.html">Nachrichten Sehen</a>
 
+<!-- Neue Nachricht in card -->
 <div class="card p-4 mb-5">
   <h2>Neue Nachricht</h2>
   <input id="title" class="form-control mb-3" placeholder="Titel" hidden/>
   <textarea id="content" class="form-control mb-3" placeholder="Inhalt" rows="10" cols="50" hidden></textarea>
-  <button id="post" class="btn btn-primary me-2" onclick="postNews()" hidden>Posten</button>
-  <button id="update" class="btn btn-outline-primary" onclick="updateNews()" disabled hidden>Update</button>
+  <button id="post" class="btn btn-danger me-2" onclick="postNews()" hidden>Posten</button>
+  <button id="update" class="btn btn-outline-danger" onclick="updateNews()" disabled hidden>Update</button>
 </div>
 
+<!-- Nachrichten Table -->
 <div class="card p-4">
   <h2>Nachrichten</h2>
   <div class="table-responsive">
@@ -88,4 +109,3 @@
 <script src="admin.js"></script>
 </body>
 </html>
-<!--später verbesserung-->

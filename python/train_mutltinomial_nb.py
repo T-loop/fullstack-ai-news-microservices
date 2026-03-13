@@ -1,12 +1,3 @@
-"""
-Multinomial Naive Bayes für Textklassifikation
-----------------------------------------------
-Geeignet für:
-- kleine Datensätze
-- klare Wortindikatoren
-- sehr schnelle Trainingszeit
-"""
-
 import pandas as pd
 import joblib
 import time
@@ -17,17 +8,7 @@ from sklearn.naive_bayes import MultinomialNB
 
 
 def train_text_with_labels(texts, labels):
-    """
-    Trainiert ein Multiclass-Textmodell mit:
-    TF-IDF + Multinomial Naive Bayes
-
-    Parameter:
-    texts  -> Liste oder Pandas Series mit Texten
-    labels -> Zugehörige Klassenlabels
-
-    Rückgabe:
-    trainiertes sklearn Pipeline Modell
-    """
+    
 
     # Deutsche Stopwörter
     GERMAN_STOPWORDS = [
@@ -48,7 +29,7 @@ def train_text_with_labels(texts, labels):
 
         # Multinomial Naive Bayes
         ("classifier", MultinomialNB(
-            alpha=1.0   # Laplace-Glättung (verhindert Null-Wahrscheinlichkeiten)
+            alpha=1.0   # Laplace Glätung
         ))
     ])
 

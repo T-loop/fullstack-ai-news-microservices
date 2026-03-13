@@ -1,4 +1,3 @@
-
 import time
 import pandas as pd
 from sklearn.pipeline import Pipeline
@@ -24,7 +23,7 @@ GERMAN_STOPWORDS = [
     "noch","nur","schon","wird","werden","kann","könnte","soll","sollte"
 ]
 
-# Pipeline: TF-IDF + Multinomial Naive Bayes
+# Pipeline: TF-IDF + Multinomial Naive Bayes sklearn 
 model = Pipeline([
     ("tfidf", TfidfVectorizer(stop_words=GERMAN_STOPWORDS, lowercase=True)),
     ("classifier", MultinomialNB(alpha=1.0))
