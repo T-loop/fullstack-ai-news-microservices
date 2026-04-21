@@ -1,5 +1,5 @@
 const cron = require("node-cron");
-const service = require("../services/newsService"); 
+const service = require("../services/newsService");  // service
 
 // SYSTEM_USER_ID
 const SYSTEM_USER_ID = 1;
