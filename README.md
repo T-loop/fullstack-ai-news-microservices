@@ -1,8 +1,10 @@
-# Fullstack AI News Microservices
+# 🚀 Fullstack AI News Microservices
 
-## Installation
+---
 
-Zuerst müssen die Node.js Abhängigkeiten installiert werden.
+## 📦 Installation
+
+First, install the Node.js dependencies:
 
 ```bash
 npm install
@@ -10,51 +12,51 @@ npm install
 
 ---
 
-## Node.js Backend starten
+## 🖥️ Start Node.js Backend
 
-In das Backend-Verzeichnis wechseln:
+Navigate to the backend directory:
 
 ```bash
 cd backend
 ```
 
-Server starten:
+▶️ Start the server:
 
 ```bash
 node app.js
 ```
 
-Beispielausgabe im Terminal:
+📌 Example output:
 
 ```
 [dotenv@17.2.3] injecting env (6) from .env
 heeelo CRONNNNN JOB Start
-Nodejs Server läuft auf Port 3000
+Nodejs Server running on port 3000
 ```
 
 ---
 
-## Python FastAPI Server starten
+## 🐍 Start Python FastAPI Server
 
-Zum Python-Verzeichnis wechseln:
+Navigate to the Python directory:
 
 ```bash
 cd python
 ```
 
-Virtual Environment aktivieren:
+🔧 Activate virtual environment:
 
 ```bash
 .\venv\Scripts\Activate
 ```
 
-Dann den FastAPI Server starten:
+▶️ Start FastAPI server:
 
 ```bash
 uvicorn fastApi:app --reload
 ```
 
-Beispielausgabe:
+📌 Example output:
 
 ```
 INFO:     Will watch for changes in these directories
@@ -64,7 +66,7 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
 
-Beispiel Request:
+📡 Example request:
 
 ```
 POST /classify HTTP/1.1
@@ -73,9 +75,9 @@ POST /classify HTTP/1.1
 
 ---
 
-## Nachrichten anzeigen
+## 🌐 View News in Browser
 
-Die Nachrichten können im Browser unter folgender Adresse angezeigt werden:
+Open the following URL:
 
 ```
 http://localhost:3000/alluser.html
@@ -83,11 +85,13 @@ http://localhost:3000/alluser.html
 
 ---
 
-## Datenbank Setup (PostgreSQL)
+## 🗄️ Database Setup (PostgreSQL)
 
-Am Anfang müssen die Tabellen in PostgreSQL erstellt werden und die `.env` Datei mit der Datenbankkonfiguration angepasst werden.
+Before running the project, create the required tables and configure your `.env` file.
 
-### Tabelle: users
+---
+
+### 👤 Table: users
 
 ```sql
 CREATE TABLE users (
@@ -98,7 +102,9 @@ CREATE TABLE users (
 );
 ```
 
-### Tabelle: messages
+---
+
+### 📰 Table: messages
 
 ```sql
 CREATE TABLE messages (
@@ -118,17 +124,17 @@ CREATE TABLE messages (
 
 ---
 
-## Admin Benutzer Registrierung (einmalig)
+## 🔐 Admin User Registration (One-time Setup)
 
-Der Admin Benutzer muss einmal über das Terminal registriert werden, da es kein Formular im GUI Web Interface gibt.
+Since there is no UI form, the admin user must be created via terminal.
 
-Test Registrierung:
+▶️ Test registration:
 
 ```bash
 Invoke-RestMethod -Uri http://localhost:3000/auth/register -Method POST -Body '{"username":"testuser","password":"123456"}' -ContentType "application/json"
 ```
 
-Beispiel Ausgabe:
+📌 Example output:
 
 ```
 userid username
